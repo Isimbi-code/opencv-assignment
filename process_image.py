@@ -1,29 +1,17 @@
 import cv2
 
+image = cv2.imread('assign.jpg')
 
+cv2.rectangle(image, (263, 188), (985, 930), (0, 255, 0), 10)
 
-image = cv2.imread('assign.png')
+cv2.addWeighted(cv2.rectangle(image.copy(), (790, 70), (1240, 175), (0, 0, 0), -1), 0.5, image, 1 - 0.5, 0, dst=image)
 
+cv2.putText(image, 'RAH972U', (800, 150), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 7)
 
-x, y, w, h = 60, 75, 250, 180  
+cv2.imshow('Image', image)
 
+cv2.waitKey(0)
 
-cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)  
+cv2.imwrite('assign_result.jpg', image)
 
-
-text = "RAH972U"
-font = cv2.FONT_HERSHEY_SIMPLEX
-font_scale = 1
-font_thickness = 2
-text_color = (0, 255, 0)  
-text_size = cv2.getTextSize(text, font, font_scale, font_thickness)[0]
-text_x = x
-text_y = y - 10  
-
-cv2.putText(image, text, (text_x, text_y), font, font_scale, text_color, font_thickness)
-
-
-cv2.imwrite('assign_result.png', image)
-
-
-'assign_result.png'
+cv2.destroyAllWindows()
