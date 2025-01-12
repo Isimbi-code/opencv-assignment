@@ -5,7 +5,7 @@ import cv2
 image = cv2.imread('assign.png')
 
 
-x, y, w, h = 60, 100, 350, 100  
+x, y, w, h = 60, 75, 250, 180  
 
 
 cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)  
